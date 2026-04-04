@@ -12,7 +12,7 @@ export default defineConfig({
   timeout: 30 * 1000,
   testDir: './tests',
   fullyParallel: false,
-  retries: 1,
+  // retries: 1,
   workers: process.env.CI ? 1 : undefined,
 
   reporter: [

@@ -1,9 +1,49 @@
 import { test, expect } from '../utils/hooks';
 import { RandomDataUtil } from '../utils/randomDataGenerator'
-import { TestConfig } from '../test.config'
+import { TestConfig } from '../testdata/test.config'
 import { DataProvider } from '../utils/dataproviders'
+import { RegistrationPage } from '../pages/RegistrationPage'
 import { LoginPage } from '../pages/LoginPage'
+import { ReusableMethods } from '../utils/reusableMethods';
+import { TestData } from '../utils/testData';
+import { CommonPage } from '../pages/commonMethods'
 
-test('User Registration', async ({ page }) => {
-  console.log("Registration page")
+test('User Registration', { tag: ['@smoke'] }, async ({ page, testData }) => {
+  let password = RandomDataUtil.getPassword()
+  let registrationPage = new RegistrationPage(page, testData)
+  let loginPage = new LoginPage(page)
+
+  await test.step('Click on register here button', async () => {
+    registrationPage.clickOnRegisterHere()
+  })
+
+  await registrationPage.enterFirstName(RandomDataUtil.getFirstName())
+  await registrationPage.enterLastName(RandomDataUtil.getlastName())
+  await registrationPage.enterEmail(RandomDataUtil.getEmail())
+  await registrationPage.enterPhoneNumber(RandomDataUtil.getPhoneNumber())
+  await registrationPage.enterOccupation("Doctor")
+  await registrationPage.checkGender('Female')
+  await registrationPage.enterPassword(password)
+  await registrationPage.enterConfirmPassword(password)
+  await registrationPage.check18YearOld()
+  await registrationPage.clickRegister()
+  await registrationPage.verifySuccessMessage(ReusableMethods.getProperty("REGISTRATIONSUCCESSMESSAGE"))
+  await registrationPage.clickLogin()
+
+  await loginPage.enterEmail(testData.email)
+  await loginPage.enterPassword(testData.password)
+  await loginPage.clickLogin()
+});
+
+test('User Registration Page errors validation for mandatory fields', { tag: ['@negative'] }, async ({ page, testData }) => {
+  let commonPage = new CommonPage(page, testData)
+  let registrationPage = new RegistrationPage(page, testData)
+
+  await registrationPage.clickOnRegisterHere()
+  await registrationPage.clickRegister()
+  await commonPage.verifyErrorMessage('First Name', ReusableMethods.getProperty("FIRSTNAME_ERROR_MESSAGE"))
+  await commonPage.verifyErrorMessage('Email', ReusableMethods.getProperty("EMAIL_ERROR_MESSAGE"))
+  await commonPage.verifyErrorMessage('Phone Number', ReusableMethods.getProperty("PHONE_NUMBER_ERROR_MESSAGE"))
+  await commonPage.verifyErrorMessage('Password', ReusableMethods.getProperty("Password_ERROR_MESSAGE"))
+  await commonPage.verifyErrorMessage('Confirm Password', ReusableMethods.getProperty("CONFIRM_PASSWORD_ERROR_MESSAGE"))
 });

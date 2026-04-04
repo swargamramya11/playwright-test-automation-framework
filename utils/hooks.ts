@@ -1,23 +1,26 @@
 import { test as base } from '@playwright/test';
 import { TestConfig } from '../testdata/test.config'
+import { ReusableMethods } from './reusableMethods'
+import { TestData } from '../utils/testData'
 
-export const test = base.extend({
-  // you can add fixtures here if needed
-});
+type MyFixtures = {
+  testData: TestData
+}
+
+export const test = base.extend<MyFixtures>({
+  testData: async ({}, use) => {
+    await use({} as TestData)
+  }
+})
 
 test.beforeEach(async ({ page }) => {
   console.log('Running before each test');
-
-  console.log(process.env.URL)
-  console.log(process.env.MESSAGE)
-
-  let config: TestConfig = new TestConfig();
-  await page.goto(config.appUrl);
-});
+  await page.goto(ReusableMethods.getProperty("URL"));
+})
 
 test.afterEach(async ({ page }) => {
   console.log('Running after each test');
   await page.close()
-});
+})
 
 export const expect = test.expect;

@@ -20,7 +20,10 @@ export class RandomDataUtil {
     }
 
     static getPhoneNumber() {
-        return faker.phone.number();
+        // Indian mobile numbers usually start with 9, 8, or 7
+        const prefix = faker.helpers.arrayElement(['9', '8', '7']);
+        const rest = faker.string.numeric(9); // generate remaining 9 digits
+        return prefix + rest; // total 10 digits
     }
 
     static getUsername(): string {

@@ -15,15 +15,23 @@ export class DataProvider {
     }
 
     static getDataFromXLSX(filePath: string) {
-       //Loaded excel file
-       //file--> workbook---sheets--rows & columns
+        //Loaded excel file
+        //file--> workbook---sheets--rows & columns
 
-       const workbook=XLSX.readFile(filePath);
-       const sheetNames=workbook.SheetNames[0];
-       const worksheet=workbook.Sheets[sheetNames];
-       
-       //convert sheet into json
-       const loginData:any=XLSX.utils.sheet_to_json(worksheet);
-       console.log(loginData);
+        const workbook = XLSX.readFile(filePath);
+        const sheetNames = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetNames];
+
+        //convert sheet into json
+        const loginData: any = XLSX.utils.sheet_to_json(worksheet);
+        console.log(loginData);
+    }
+
+    static writeDataToXLSX(filePath: string, sheetName: string, productName: any[]) {
+        let data = productName
+        let worksheet = XLSX.utils.json_to_sheet(data)
+        let workbook = XLSX.utils.book_new()
+        XLSX.utils.book_append_sheet(workbook, worksheet, sheetName)
+        XLSX.writeFile(workbook, filePath)
     }
 }
