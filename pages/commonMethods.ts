@@ -1,7 +1,7 @@
 import { Page, expect, Locator } from '@playwright/test'
 import { TestData } from '../utils/testData';
 
-export class CommonPage {
+export class CommonMethods {
   private readonly page: Page;
   private testData: TestData;
 

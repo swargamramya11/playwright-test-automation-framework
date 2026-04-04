@@ -6,7 +6,7 @@ import { RegistrationPage } from '../pages/RegistrationPage'
 import { LoginPage } from '../pages/LoginPage'
 import { ReusableMethods } from '../utils/reusableMethods';
 import { TestData } from '../utils/testData';
-import { CommonPage } from '../pages/commonMethods'
+import { CommonMethods } from '../pages/CommonMethods'
 
 test('User Registration', { tag: ['@smoke'] }, async ({ page, testData }) => {
   let password = RandomDataUtil.getPassword()
@@ -36,14 +36,14 @@ test('User Registration', { tag: ['@smoke'] }, async ({ page, testData }) => {
 });
 
 test('User Registration Page errors validation for mandatory fields', { tag: ['@negative'] }, async ({ page, testData }) => {
-  let commonPage = new CommonPage(page, testData)
+  let commonMethods = new CommonMethods(page, testData)
   let registrationPage = new RegistrationPage(page, testData)
 
   await registrationPage.clickOnRegisterHere()
   await registrationPage.clickRegister()
-  await commonPage.verifyErrorMessage('First Name', ReusableMethods.getProperty("FIRSTNAME_ERROR_MESSAGE"))
-  await commonPage.verifyErrorMessage('Email', ReusableMethods.getProperty("EMAIL_ERROR_MESSAGE"))
-  await commonPage.verifyErrorMessage('Phone Number', ReusableMethods.getProperty("PHONE_NUMBER_ERROR_MESSAGE"))
-  await commonPage.verifyErrorMessage('Password', ReusableMethods.getProperty("Password_ERROR_MESSAGE"))
-  await commonPage.verifyErrorMessage('Confirm Password', ReusableMethods.getProperty("CONFIRM_PASSWORD_ERROR_MESSAGE"))
+  await commonMethods.verifyErrorMessage('First Name', ReusableMethods.getProperty("FIRSTNAME_ERROR_MESSAGE"))
+  await commonMethods.verifyErrorMessage('Email', ReusableMethods.getProperty("EMAIL_ERROR_MESSAGE"))
+  await commonMethods.verifyErrorMessage('Phone Number', ReusableMethods.getProperty("PHONE_NUMBER_ERROR_MESSAGE"))
+  await commonMethods.verifyErrorMessage('Password', ReusableMethods.getProperty("Password_ERROR_MESSAGE"))
+  await commonMethods.verifyErrorMessage('Confirm Password', ReusableMethods.getProperty("CONFIRM_PASSWORD_ERROR_MESSAGE"))
 });
