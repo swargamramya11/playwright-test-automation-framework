@@ -1,5 +1,4 @@
 import { test as base } from '@playwright/test';
-import { TestConfig } from '../testdata/test.config'
 import { ReusableMethods } from './reusableMethods'
 import { TestData } from '../utils/testData'
 

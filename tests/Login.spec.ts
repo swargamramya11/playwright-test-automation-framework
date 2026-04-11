@@ -1,6 +1,4 @@
 import { test, expect } from '../utils/hooks';
-import { RandomDataUtil } from '../utils/randomDataGenerator'
-import { TestConfig } from '../testdata/test.config'
 import { DataProvider } from '../utils/dataproviders'
 import { LoginPage } from '../pages/LoginPage'
 import { CommonMethods } from '../pages/CommonMethods'

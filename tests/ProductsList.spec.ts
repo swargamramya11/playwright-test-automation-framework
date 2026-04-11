@@ -1,12 +1,7 @@
 import { test, expect } from '../utils/hooks';
-import { RandomDataUtil } from '../utils/randomDataGenerator'
-import { TestConfig } from '../testdata/test.config'
 import { DataProvider } from '../utils/dataproviders'
-import { RegistrationPage } from '../pages/RegistrationPage'
 import { LoginPage } from '../pages/LoginPage'
 import { ReusableMethods } from '../utils/reusableMethods';
-import { TestData } from '../utils/testData';
-import { CommonMethods } from '../pages/CommonMethods'
 import { ProductsListPage } from '../pages/ProductsListPage'
 
 test('Print products list in excel', { tag: ['@smoke, @writeExcel'] }, async ({ page, testData }) => {

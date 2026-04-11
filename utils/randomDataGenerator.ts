@@ -1,75 +1,42 @@
-import { faker } from '@faker-js/faker';
+import faker from 'faker';
 
 export class RandomDataUtil {
 
-    static getFirstName() {
-        return faker.person.firstName();
-    }
+  static getFirstName(): string {
+    return faker.name.firstName();
+  }
 
-    static getlastName() {
-        return faker.person.lastName();
-    }
+  static getLastName(): string {
+    return faker.name.lastName();
+  }
 
+  static getFullName(): string {
+    return faker.name.findName();
+  }
 
-    static getFullName() {
-        return faker.person.fullName();
-    }
+  static getEmail(): string {
+    return faker.internet.email();
+  }
 
-    static getEmail() {
-        return faker.internet.email();
-    }
+  static getPhoneNumber(): string {
+    return '9' + Math.floor(100000000 + Math.random() * 900000000).toString();
+  }
 
-    static getPhoneNumber() {
-        // Indian mobile numbers usually start with 9, 8, or 7
-        const prefix = faker.helpers.arrayElement(['9', '8', '7']);
-        const rest = faker.string.numeric(9); // generate remaining 9 digits
-        return prefix + rest; // total 10 digits
-    }
+  static getPassword(): string {
+    return faker.internet.password(8);
+  }
 
-    static getUsername(): string {
-        return faker.internet.username();
+  static getOccupation(): string {
+    const options = ['Doctor', 'Engineer', 'Student'];
+    return options[Math.floor(Math.random() * options.length)];
+  }
 
-    }
+  static getGender(): string {
+    const options = ['Male', 'Female'];
+    return options[Math.floor(Math.random() * options.length)];
+  }
 
-    static getPassword(): string {
-        return faker.internet.password();
-    }
-
-
-    static getRandomCountry(): string {
-        return faker.location.country();
-    }
-
-
-    static getRandomState(): string {
-        return faker.location.state();
-    }
-
-    static getRandomCity(): string {
-        return faker.location.city();
-    }
-
-    static getRandomPin(): string {
-        return faker.location.zipCode();
-    }
-
-    static getRandomAddress(): string {
-        return faker.location.streetAddress();
-    }
-
-    static getRandomPassword(length: number = 10): string {
-        return faker.internet.password({ length });
-    }
-
-    static getRandomAlphanumeric(length: number): string {
-        return faker.string.alphanumeric(length);
-    }
-
-    static getRandomNumeric(length: number): string {
-        return faker.string.numeric(length);
-    }
-
-    static getRandomUUID(): string {
-        return faker.string.uuid();
-    }
+  static getBoolean(): boolean {
+    return Math.random() > 0.5;
+  }
 }

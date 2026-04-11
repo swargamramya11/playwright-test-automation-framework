@@ -15,7 +15,7 @@
     "test:end-to-end": "playwright test --grep @end-to-end --headed",
     "test:sanity:debug": "playwright test --grep @sanity --debug",
     "test:rerun:failed": "playwright test --last-failed",
-    "test:run":"playwright test tests/Login.spec.ts"
+    "test:run": "playwright test tests/Login.spec.ts"
   },
   "devDependencies": {
     "@playwright/test": "^1.58.2",
@@ -24,9 +24,9 @@
     "allure-playwright": "^2.15.1"
   },
   "dependencies": {
-    "@faker-js/faker": "^10.4.0",
     "csv-parse": "^6.2.1",
     "dotenv": "^17.3.1",
+    "faker": "^5.5.3",
     "xlsx": "^0.18.5"
   }
 }
