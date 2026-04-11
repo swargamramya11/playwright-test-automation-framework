@@ -18,6 +18,12 @@ for (const dataset of data) {
 }
 
 test('User Login errors validation for mandatory fields', { tag: ['@smoke', '@login', '@negative'] }, async ({ page, testData }) => {
+//Timeouts  
+  test.setTimeout(10000)
+  test.slow()
+  page.setDefaultTimeout(4000)
+  page.setDefaultNavigationTimeout(5000)
+
   let commonMethods = new CommonMethods(page, testData)
   let registrationPage = new RegistrationPage(page, testData)
   let loginPage = new LoginPage(page);
