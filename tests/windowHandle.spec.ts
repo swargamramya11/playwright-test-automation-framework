@@ -5,7 +5,7 @@ import { ReusableMethods } from '../utils/reusableMethods';
 const jsonPath = 'testdata/logindata.json'
 const data = DataProvider.getTestDataFromJson(jsonPath)
 
-test("Tab and Window handling using index", { tag: ['@smoke', '@tabHandle'] }, async ({ page }) => {
+test("Tab and Window handling using index", { tag: ['@tabHandle'] }, async ({ page }) => {
   let reusableMethods = new ReusableMethods(page);
 
   const newTab = await reusableMethods.clickOnButtonToOpenNewTab(page.getByText("New Tab"))
@@ -21,7 +21,7 @@ test("Tab and Window handling using index", { tag: ['@smoke', '@tabHandle'] }, a
   await expect(tab2.locator("h1")).toContainText("Register");
 })
 
-test("Tab and Window handling using URL", { tag: ['@smoke', '@tabHandleUsingURL'] }, async ({ page }) => {
+test("Tab and Window handling using URL", { tag: ['@tabHandleUsingURL'] }, async ({ page }) => {
   let reusableMethods = new ReusableMethods(page);
 
   await reusableMethods.clickOnButtonToOpenNewTab(page.getByText("New Tab"))
@@ -40,7 +40,7 @@ test("Tab and Window handling using URL", { tag: ['@smoke', '@tabHandleUsingURL'
   await expect(newWindowSeleniumConf.locator("h1")).toContainText("Register");
 })
 
-test("Tab and Window handling using Title", { tag: ['@smoke', '@tabHandleUsingTitle'] }, async ({ page }) => {
+test("Tab and Window handling using Title", { tag: ['@tabHandleUsingTitle'] }, async ({ page }) => {
   let reusableMethods = new ReusableMethods(page);
 
   await reusableMethods.clickOnButtonToOpenNewTab(page.getByText("New Tab"))

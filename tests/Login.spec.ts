@@ -5,6 +5,8 @@ import { CommonMethods } from '../pages/CommonMethods'
 import { RegistrationPage } from '../pages/RegistrationPage'
 import { ReusableMethods } from '../utils/reusableMethods';
 
+test.describe.configure({ mode: 'parallel' });
+
 const jsonPath = 'testdata/logindata.json'
 const jsonData = DataProvider.getTestDataFromJson(jsonPath)
 

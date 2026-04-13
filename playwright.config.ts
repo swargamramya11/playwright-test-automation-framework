@@ -13,9 +13,9 @@ export default defineConfig({
   timeout: 100 * 1000,
   expect: { timeout: 50000 },
   testDir: './tests',
-  fullyParallel: false,
-  // retries: 1,
-  workers: process.env.CI ? 1 : undefined,
+  fullyParallel: true,
+  retries: 0,
+  workers: 2,
 
   reporter: [
     ['html', { outputFolder: 'reports/html-report' }],
