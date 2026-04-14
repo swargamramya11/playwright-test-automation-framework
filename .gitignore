@@ -6,6 +6,6 @@
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
-/reports/
+/resources/reports/
 /allure-report/
 /allure-results/
