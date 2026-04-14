@@ -287,4 +287,20 @@ export class ReusableMethods {
     async type(text: string) {
         await this.page.keyboard.type(text);
     }
+
+    //Cookies
+
+    async addCookies(cookie: any[]) {
+        const cookies = await this.page.context().addCookies(cookie);
+        console.log(cookies);
+    }
+
+    async getCookies() {
+        const cookies = await this.page.context().cookies();
+        console.log(cookies);
+    }
+
+    async deleteCookies() {
+        await this.page.context().clearCookies(); 
+    }
 }

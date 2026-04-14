@@ -26,6 +26,8 @@ export default defineConfig({
   ],
 
   use: {
+    locale:'en-US',
+    // proxy: {server:'https://myproxy.com/8080'},
     headless: false,
     baseURL: process.env.BASE_URL,
     trace: 'retain-on-failure',  // Options: 'off', 'on', 'retain-on-failure', 'on-first-retry' 
