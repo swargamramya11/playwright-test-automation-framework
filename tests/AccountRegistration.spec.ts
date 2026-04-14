@@ -1,4 +1,4 @@
-import { test, expect } from '../utils/hooks';
+import { test } from '../utils/hooks';
 import { RandomDataUtil } from '../utils/randomDataGenerator'
 import { RegistrationPage } from '../pages/RegistrationPage'
 import { LoginPage } from '../pages/LoginPage'

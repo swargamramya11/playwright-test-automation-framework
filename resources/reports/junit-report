@@ -1,0 +1,44 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="13.255486000000001">
+<testsuite name="Dropdowns.spec.ts" timestamp="2026-04-14T06:12:54.147Z" hostname="chromium" tests="1" failures="0" skipped="0" time="6.725" errors="0">
+<testcase name="Dropdown selection" classname="Dropdowns.spec.ts" time="6.725">
+<system-out>
+<![CDATA[Running before each test
+Duplicate items: []
+
+      
+        United States
+      
+      
+        Canada
+      
+      
+        United Kingdom
+      
+      
+        Germany
+      
+      
+        France
+      
+      
+        Australia
+      
+      
+        Japan
+      
+      
+        China
+      
+      
+        Brazil
+      
+      
+        India
+      
+    
+Running after each test
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

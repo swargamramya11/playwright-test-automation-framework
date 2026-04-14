@@ -1,9 +1,5 @@
 import { test, expect } from '../utils/hooks';
-import { DataProvider } from '../utils/dataproviders'
 import { ReusableMethods } from '../utils/reusableMethods';
-
-const jsonPath = 'testdata/logindata.json'
-const data = DataProvider.getTestDataFromJson(jsonPath)
 
 test("Tab and Window handling using index", { tag: ['@tabHandle'] }, async ({ page }) => {
   let reusableMethods = new ReusableMethods(page);

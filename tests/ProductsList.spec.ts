@@ -14,5 +14,5 @@ test('Print products list in excel', { tag: ['@smoke, @writeExcel'] }, async ({ 
 
   let data: any[] = await productsListPage.getProductsList()
   console.log(data)
-  DataProvider.writeDataToXLSX('testdata/ProductsList.xlsx', 'Products', data)
+  DataProvider.writeDataToXLSX('resources/testdata/ProductsList.xlsx', 'Products', data)
 });

@@ -3,11 +3,11 @@ import { allure } from 'allure-playwright';
 import dotenv from 'dotenv';
 
 dotenv.config({
-  path: `env/.env.${process.env.ENV}`, // process is nodejs object, env contains environment variables, ENV is custom variable name
+  path: `resources/env/.env.${process.env.ENV}`, // process is nodejs object, env contains environment variables, ENV is custom variable name
 })
 
 export default defineConfig({
-  snapshotDir: './visual-snapshots',
+  snapshotDir: './resources/visual-snapshots',
   globalTeardown: './utils/global-teardown',
   globalSetup: './utils/global-setup.ts',
   timeout: 100 * 1000,
@@ -18,11 +18,11 @@ export default defineConfig({
   workers: 1,
 
   reporter: [
-    ['html', { outputFolder: 'reports/html-report' }],
+    ['html', { outputFolder: 'resources/reports/html-report' }],
     ['list'],
-    ['json', { outputFile: 'reports/json-report' }],
-    ['junit', { outputFile: 'reports/junit-report' }],
-    ['allure-playwright', { outputFolder: 'reports/allure-results' }]
+    ['json', { outputFile: 'resources/reports/json-report' }],
+    ['junit', { outputFile: 'resources/reports/junit-report' }],
+    ['allure-playwright', { outputFolder: 'resources/reports/allure-results' }]
   ],
 
   use: {

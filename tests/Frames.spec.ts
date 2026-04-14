@@ -2,9 +2,6 @@ import { test } from '../utils/hooks';
 import { DataProvider } from '../utils/dataproviders'
 import { ReusableMethods } from '../utils/reusableMethods';
 
-const jsonPath = 'testdata/logindata.json'
-const data = DataProvider.getTestDataFromJson(jsonPath)
-
 test("Frames", { tag: ['@frames'] }, async ({ page }) => {
   let reusableMethods = new ReusableMethods(page);
   console.log("Number of frames: "+ await reusableMethods.numberOfFrames())

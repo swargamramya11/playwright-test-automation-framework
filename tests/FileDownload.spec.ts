@@ -9,6 +9,6 @@ test('Upload single file', { tag: ['@downloadFile'] }, async ({ page }) => {
   const download = await reusableMethods.clickAndDownloadFile(page.locator("#txtDownloadLink"))
   const downloadedPath = await download.path();
   console.log("Downloaded path: " + downloadedPath)
-  const downloadPath = "testdata/downloads/testFile.txt"
+  const downloadPath = "resources/downloads/testFile.txt"
   download.saveAs(downloadPath)
 });

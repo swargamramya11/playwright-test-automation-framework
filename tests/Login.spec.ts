@@ -7,10 +7,10 @@ import { ReusableMethods } from '../utils/reusableMethods';
 
 test.describe.configure({ mode: 'parallel' });
 
-const jsonPath = 'testdata/logindata.json'
+const jsonPath = 'resources/testdata/logindata.json'
 const jsonData = DataProvider.getTestDataFromJson(jsonPath)
 
-const csvPath = 'testdata/logindata.csv'
+const csvPath = 'resources/testdata/logindata.csv'
 const csvData = DataProvider.getDataFromCSV(csvPath)
 
 for (const { email, password } of jsonData) {
@@ -34,7 +34,7 @@ test.describe('Login with csv data', () => {
   }
 })
 
-const excelPath = 'testdata/logindata.xlsx'
+const excelPath = 'resources/testdata/logindata.xlsx'
 const excelData = DataProvider.getDataFromXLSX(excelPath)
 
 for (const { Email, Password } of excelData) {
