@@ -316,7 +316,7 @@ export class ReusableMethods {
         // expect(accessibilityScanResults.violations.length).toEqual(0)
     }
 
-    async returnFewTypesOfAccessibilityResults(testInfo, rules:any[]) {
+    async returnFewTypesOfAccessibilityResults(testInfo, rules: any[]) {
         //   Scanning few WCAG violations
         let page = this.page
         const accessibilityScanResults1 = await new AxeBuilder({ page }).withTags(rules).analyze()
@@ -328,7 +328,7 @@ export class ReusableMethods {
         console.log("Violations: " + accessibilityScanResults1.violations.length)
     }
 
-    async disableFewValidations(testInfo, disableViolation:any[]) {
+    async disableFewValidations(testInfo, disableViolation: any[]) {
         //   Scanning WCAG violations with disabled rules
         let page = this.page
         const accessibilityScanResults1 = await new AxeBuilder({ page }).disableRules(disableViolation).analyze()
@@ -338,5 +338,18 @@ export class ReusableMethods {
             contentType: 'application/json'
         })
         console.log("Violations: " + accessibilityScanResults1.violations.length)
+    }
+
+    //Gettext
+    async getFirstElement(locator: Locator) {
+        await locator.first().innerText()
+    }
+
+    async getLastElement(locator: Locator) {
+        await locator.last().innerText()
+    }
+
+    async getnthElement(locator: Locator, index: number) {
+        await locator.nth(index).innerText()
     }
 }
